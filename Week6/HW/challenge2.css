@@ -1,0 +1,9 @@
+body {
+    font: 1.2em / 1.5 sans-serif;
+  }
+  
+  .box {
+    border: dotted 5px black;
+    padding:20px;
+  }
+  

@@ -1,0 +1,7 @@
+## Exploring Websites as Art
+
+["INTO TIME. COM" by RAFAËL ROZENDAAL](https://anthology.rhizome.org/intotime-com)
+
+After browsing through tons of cool stuff on Rhizome's "Net Art Anthology," one thing that caught my interest was this project called "INTO TIME. COM" by Rafaël Rozendaal. The project was made in 2010, which is relatively new compared to a lot of the projects on the website, and I think what really made this exact project stood out to me was because of how vibrant and colorful everything was.
+
+INTO TIME. COM is a combination of over 100 individual websites created solely by Rafaël and each of the websites created offers users a simple interactive experience. When you first go into the website, you won't see any words, graphics, or anything. Instead, you'll only see two vibrant and gradient colors. After that, once you click anywhere you want, the screen would split into half and the colors on both sides wouold change. I thought this website was so cool and fun to play with. I've also always been a person who likes colorful things, and so seeing this on the website really gave me some inspirations on what I want to add on my website that I will be creating very soon in this course. 
