@@ -1,0 +1,50 @@
+/* First Example */
+.wrapper {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .wrapper > * {
+    margin: 20px;
+  }
+  
+  .box {
+    border: 5px solid darkblue;
+    width: 200px;
+  }
+  
+  img {
+    height:100%;
+    width:100%;
+  }
+  
+  /* The > * selector in CSS means "select all direct children of .wrapper". */
+  
+  /* Second Example */
+  /* .wrapper {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .wrapper > * {
+    margin: 20px;
+  }
+  
+  .box {
+    border: 5px solid darkblue;
+    width: 200px;
+    height: 200px;
+  }
+  
+  img {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .cover {
+    object-fit: cover;
+  }
+  
+  .contain {
+    object-fit: contain;
+  } */

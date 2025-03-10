@@ -1,0 +1,114 @@
+.borderRadius {
+    border-radius: 8px;
+  }
+  
+  .border {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+  }
+  
+  .imgLink {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+  }
+  
+  .imgLink:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  }
+  
+  .responsive {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .opacity {
+    opacity: 0.5;
+  }
+  
+  .textContainer {
+    position: relative;
+  }
+  
+  .textImg {
+    width: 100%;
+    height: auto;
+    opacity: 0.3;
+  }
+  
+  .textCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+  }
+  
+  .topleft {
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    font-size: 20px;
+  }
+  
+  .topright {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 20px;
+  }
+  
+  .bottomleft {
+    position: absolute;
+    bottom: 8px;
+    left: 12px;
+    font-size: 20px;
+  }
+  
+  .bottomright {
+    position: absolute;
+    bottom: 8px;
+    right: 12px;
+    font-size: 20px;
+  }
+  
+  .container {
+    position: relative;
+    width: 50%;
+  }
+  
+  .image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 0.5s ease;
+    background-color: black;
+  }
+  
+  .container:hover .overlay {
+    opacity: 1;
+  }
+  
+  .text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }

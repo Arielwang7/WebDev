@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="styling.css" />
+  </head>
+  
+  <body>
+    <h2>Rounded Image</h2>
+
+    <p>Use the border-radius property to create rounded images:</p>
+
+    <img
+      class="borderRadius"
+      src="paris.jpg"
+      alt="Paris"
+      width="300"
+      height="300"
+    />
+
+    <h2>Thumbnail Image</h2>
+
+    <p>Use the border property to create thumbnail images:</p>
+
+    <img class="border" src="paris.jpg" alt="Paris" style="width: 150px" />
+
+    <h2>Thumbnail Image as Link</h2>
+
+    <p>
+      Use the border property to create thumbnail images. Wrap an anchor around
+      the image to use it as a link.
+    </p>
+    <p>Hover over the image and click on it to see the effect.</p>
+
+    <a
+      target="_blank"
+      href="https://www.w3schools.com/css/css3_images.asp#:~:text=Thumbnail%20Image%20as%20Link%3A"
+    >
+      <img class="imgLink" src="paris.jpg" alt="Paris" style="width: 150px" />
+    </a>
+
+    <!-- <a> is an anchor tag that creates a hyperlink. -->
+    <!-- href="paris.jpg" makes the link point to paris.jpg (the image file itself). -->
+    <!-- target="_blank" makes the link open in a new tab when clicked. -->
+    <h2>Responsive Image</h2>
+
+    <p>
+      Responsive images will automatically adjust to fit the size of the screen.
+    </p>
+    <p>Resize the browser window to see the effect:</p>
+
+    <img
+      class="responsive"
+      src="img_5terre_wide.jpg"
+      alt="Cinque Terre"
+      width="1000"
+      height="300"
+    />
+
+    <h1>Image Transparency</h1>
+
+    <p>
+      The opacity property specifies the transparency of an element. The lower
+      the value, the more transparent:
+    </p>
+
+    <p>Image with 50% opacity:</p>
+    <img
+      class="opacity"
+      src="paris.jpg"
+      alt="Forest"
+      width="300"
+      height="300"
+    />
+
+    <h2>Image Text</h2>
+
+    <p>Text in image:</p>
+
+    <div class="textContainer">
+      <img
+        class="textImg"
+        src="img_5terre_wide.jpg"
+        alt="Cinque Terre"
+        width="1000"
+        height="300"
+      />
+      <div class="textCenter">Centered</div>
+      <div class="bottomleft">Bottom Left Text</div>
+      <div class="bottomright">Bottom Right Text</div>
+      <div class="topright">Top Right Text</div>
+      <div class="topleft">Top Left Text</div>
+    </div>
+
+    <h2>Fade in Overlay</h2>
+
+    <div class="container">
+      <img src="paris.jpg" alt="Avatar" class="image" />
+      <div class="overlay">
+        <div class="text">Hello Paris!</div>
+      </div>
+    </div>
+
+    <a
+      target="_blank"
+      href="https://www.w3schools.com/css/css3_images.asp#:~:text=Image%20Hover%20Effects%3A"><h2>More image hover effects</h2>
+  </body>
+</html>
