@@ -1,0 +1,133 @@
+.flex-container {
+    display: flex;
+    background-color: DodgerBlue;
+  }
+  
+.flex-container > div {
+    background-color: #f1f1f1;
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
+}
+  
+.flex-direction-container {
+    display: flex;
+    flex-direction: row;
+    background-color: DodgerBlue;
+}
+  
+.flex-direction-container > div {
+    background-color: #f1f1f1;
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+}
+  
+.flex-wrap {
+    display: flex;
+    flex-wrap: nowrap; /*keeps things inside the box*/
+    background-color: DodgerBlue;
+}
+
+.flex-wrap > div {
+    background-color: #f1f1f1;
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+}
+  
+.flex-justify {
+    display: flex;
+    justify-content: center; /*center, flex-start, flex-end, space-around, space-between, space-evenly*/
+    background-color: DodgerBlue;
+}
+  
+.flex-justify > div {
+    background-color: #f1f1f1;
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+}
+  
+.flex-align {
+    display: flex;
+    height: 200px;
+    align-items: center;
+    background-color: DodgerBlue;
+}
+  
+.flex-align > div {
+    background-color: #f1f1f1;
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+}
+  
+.flex-baseline {
+    display: flex;
+    height: 200px;
+    align-items: baseline;
+    background-color: DodgerBlue;
+}
+  
+.flex-baseline > div {
+    background-color: #f1f1f1;
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+}
+  
+  .flex-perfect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    background-color: DodgerBlue;
+  }
+  
+  .flex-perfect > div {
+    background-color: #f1f1f1;
+    color: white;
+    width: 100px;
+    height: 100px;
+  }
+  
+  /* * {
+    box-sizing: border-box;
+  } */
+  
+  .flex-response {
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    text-align: center;
+  }
+  
+  .flex-item-left {
+    background-color: #f1f1f1;
+    padding: 10px;
+    flex: 50%;
+  }
+  
+  .flex-item-right {
+    background-color: dodgerblue;
+    padding: 10px;
+    flex: 50%;
+  }
+  
+  /* Responsive layout - makes a one column-layout instead of two-column layout */
+  @media (max-width: 800px) {
+    .flex-response {
+      flex-direction: column;
+    }
+  }

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <title>Flexbox!</title>
+  <head>
+    <link rel="stylesheet" type="text/css" href="flexbox.css" />
+  </head>
+  <body>
+    <h1>Create a Flex Container</h1>
+
+    <div class="flex-container">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+    </div>
+
+    <p>
+      A Flexible Layout must have a parent element with the
+      <em>display</em> property set to <em>flex</em>.
+    </p>
+
+    <p>
+      Direct child elements(s) of the flexible container automatically becomes
+      flexible items.
+    </p>
+
+    <h1>The flex-direction Property</h1>
+
+    <div class="flex-direction-container">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+    </div>
+
+    <h1>The flex-wrap Property</h1>
+
+    <div class="flex-wrap">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+      <div>9</div>
+      <div>10</div>
+      <div>11</div>
+      <div>12</div>
+    </div>
+
+    <p>Try resizing the browser window!</p>
+
+    <h1>The justify-content Property</h1>
+
+    <div class="flex-justify">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+    </div>
+
+    <h1>The align-items Property</h1>
+
+    <div class="flex-align">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+    </div>
+
+    <p>
+      align-items: baseline; aligns the flex items such as their baselines
+      aligns:
+    </p>
+
+    <div class="flex-baseline">
+      <div><h1>1</h1></div>
+      <div><h6>2</h6></div>
+      <div><h3>3</h3></div>
+      <div><small>4</small></div>
+    </div>
+
+    <h1>Perfect Centering</h1>
+
+    <p>
+      A flex container with both the justify-content and the align-items
+      properties set to <em>center</em> will align the item(s) in the center (in
+      both axis).
+    </p>
+
+    <div class="flex-perfect">
+      <div></div>
+    </div>
+
+    <h1>Responsive Flexbox</h1>
+
+    <p>
+      The "flex-direction: row;" stacks the flex items horizontally (from left
+      to right).
+    </p>
+    <p>
+      The "flex-direction: column;" stacks the flex items vertically (from top
+      to bottom).
+    </p>
+
+    <div class="flex-response">
+      <div class="flex-item-left">1</div>
+      <div class="flex-item-right">2</div>
+    </div>
+  </body>
+</html>
