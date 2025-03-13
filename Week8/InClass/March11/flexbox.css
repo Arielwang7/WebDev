@@ -27,7 +27,7 @@
   
 .flex-wrap {
     display: flex;
-    flex-wrap: nowrap; /*keeps things inside the box*/
+    flex-wrap: wrap; /*keeps things inside the box*/
     background-color: DodgerBlue;
 }
 
@@ -55,10 +55,10 @@
     font-size: 30px;
 }
   
-.flex-align {
+.flex-align { /*used to align flex items when they don't use all available spaces vertically */
     display: flex;
     height: 200px;
-    align-items: center;
+    align-items: center; /*stretch, baseline, normal, flex-start, flex-end */
     background-color: DodgerBlue;
 }
   

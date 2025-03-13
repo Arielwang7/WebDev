@@ -1,0 +1,17 @@
+body{
+    background-color: gray;
+}
+button{
+    font-family: Roboto Mono monospace;
+    font-size: x-large;
+    text-transform: uppercase;
+    border: 2px solid pink;
+    color: hotpink;
+    box-shadow: 5px 5px 2px;
+    cursor: pointer;
+}
+.center{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
