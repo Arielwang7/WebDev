@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Spring Break Assignment</title>
+        <link rel="stylesheet" type="text/css" href="../SpringBreak/style.css">
+    </head>
+    <body>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+        <h1><center>Hi Hi Hi</center></h1>
+        <h2><center>Hello</center></h2>
+        <div class="border1">
+            <div class="border2">
+                <p>These are my borders</p>
+            </div>
+        </div>
+        <h1><center>Positioning</center></h1>
+        <div class="positioning">
+            <div class="one">
+                top left
+            </div>
+            <div class="two">
+                top right
+            </div>
+            <div class="three">
+                bottom left
+            </div>
+            <div class="four">
+                bottom right
+            </div>
+            <div class="five">
+            </div>
+        </div>
+        <h1><center>JavaScript</center></h1>
+        <div class="javascript">
+            <div class="button">
+                <button id="myButton" onclick="changeColor()">Click Me</button>
+                <script>
+                const button = document.getElementById('myButton');
+                let x = false;
+                button.addEventListener('click', function(){
+                    if (x) {
+                    button.style.backgroundColor = 'tomato';
+                    }
+                    else {
+                    button.style.backgroundColor = 'blue';
+                    }
+                x = !x;
+                });
+                </script>
+            </div>
+        </div>
+    </body>
+</html>
