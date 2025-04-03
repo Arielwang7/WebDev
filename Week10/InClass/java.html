@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+
+  <body>
+    <h1>JavaScript 101</h1>
+
+    <button onClick="switchOff">Click Me</button>
+    <script src="main.js"></script>
+
+    <p></p>
+
+    <button onClick="sumValues(7, 8)">Click me for surprise</button>
+    <script>
+      function sumValues(a, b) {
+        let c = a + b;
+        alert("The value of c is "+ c+".");
+        console.log("Woohoo!");
+      }
+    </script>
+
+    <p id="demo"></p>
+    <script>
+      document.getElementById("demo").innerHTML = "Hello Howdy!";
+    </script>
+
+    <h2 id="alert" Alert Alert Alert></h2>
+
+    <button id="alertButton">Click me for alert</button>
+    <script>
+      document.getElementById("alertButton").onclick = function () {
+        window.alert(5 + 6);
+      };
+    </script>
+
+    <script>
+      console.log("woohoo");
+    </script>
+
+    <p id="statement"></p>
+     <script>
+      let a, b, c;
+      a = 5;
+      b = 6;
+      c = a + b;
+
+      document.getElementById("statement").innerHTML =
+        "The value of z is " + c + ".";
+    </script>
+
+    <p id="hello"></p>
+    <script>
+        let e, f;
+        e = 10;
+        f = 12.5;
+
+        document.getElementById("hello").innerHTML= "10 + 12.5 is equal to " + (e + f);
+    </script>
+
+    <h1 id="cars">
+        <script src="main.js"></script>
+    </h1>
+
+    <p id="TF"></p>
+    <script>
+      let x;
+      let y;
+      x = True;
+      y = False;
+      document.getElementById('TF').innerHTML= "X is " + x ;
+    </script>
+
+    <p id="huh"></p>
+    <script>
+      let o=2;
+      document.getElementById('huh').innerHTML=o;
+    </script>
+
+    <p id="me"></p>
+    <script>
+      let name="ariel";
+      let age="100";
+      let coding=true;
+      document.getElementById("me").innerHTML="Hello, my name is "+ name + " and I am " + age +" years old. I can code Javascript: "+coding;
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Rock, Paper, Scissors Game</title>
+
+    <style>
+      html {
+        font-family: sans-serif;
+      }
+
+      body {
+        width: 50%;
+        max-width: 800px;
+        min-width: 480px;
+        margin: 0 auto;
+      }
+
+      .form input[type="number"] {
+        width: 200px;
+      }
+
+      .lastResult {
+        color: white;
+        padding: 3px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Rock, Paper, Scissors Game</h1>
+
+    <p>
+        Select either rock, paper, or scissors! 
+    </p>
+
+    <div class="form">
+      <label for="guessField">rock, paper, or scissors:</label>
+      <input
+        type="string"
+        required
+        id="guessField"
+        class="guessField"
+      />
+      <input type="submit" value="Submit" class="guessSubmit" />
+    </div>
+
+    <div class="resultParas">
+      <p class="guesses"></p>
+      <p class="lastResult"></p>
+    </div>
+
+    <script>
+        const choices = ["rock", "paper", "scissors"];
+        let randomString = Math.floor(Math.random() * choices.length);
+
+        const guesses = document.querySelector(".guesses");
+        const lastResult = document.querySelector(".lastResult");
+
+        const guessSubmit = document.querySelector(".guessSubmit");
+
+        let resetButton;
+
+        function checkGuess() {
+            const userGuess = String(guessField.value);
+            guesses.textContent = `${guesses.textContent} ${userGuess}`;
+
+            if (userGuess === randomString) {
+                lastResult.textContent = "Tie!";
+                lastResult.style.backgroundColor = "green";
+                setGameOver();
+            } else {
+                if (randomString == "scissors"){
+                    if (userGuess == "rock"){
+                        lastResult.textContent = "You won!";
+                    }
+                    if (userGuess == "paper"){
+                        lastResult.textContent = "You loss!";
+                    }
+                }
+                if (randomString == "rock"){
+                    if (userGuess == "paper"){
+                        lastResult.textContent = "You won!";
+                    }
+                    if (userGuess == "scissor"){
+                        lastResult.textContent = "You loss!";
+                    }
+                }
+                if (randomString == "paper"){
+                    if (userGuess == "scissor"){
+                        lastResult.textContent = "You won!";
+                    }
+                    if (userGuess == "rock"){
+                        lastResult.textContent = "You loss!";
+                    }
+                }
+            }
+        guessField.focus();
+        }
+        guessSubmit.addEventListener("click", checkGuess);
+
+        function setGameOver() {
+            guessField.disabled = true;
+            guessSubmit.disabled = true;
+            resetButton = document.createElement("button");
+            resetButton.textContent = "Start new game";
+            document.body.append(resetButton);
+            resetButton.addEventListener("click", resetGame);
+        }
+        resetButton.addEventListener("click", resetGame);
+
+        function resetGame() {
+            const resetParas = document.querySelectorAll(".resultParas p");
+            for (const resetPara of resetParas) {
+                resetPara.textContent = "";
+            }
+
+            resetButton.parentNode.removeChild(resetButton);
+
+            guessField.disabled = false;
+            guessSubmit.disabled = false;
+            guessField.value = "";
+            guessField.focus();
+
+            lastResult.style.backgroundColor = "white";
+
+            randomString = Math.floor(Math.random() * 100) + 1;
+        }
+    </script>
+
+  </body>
+</html>
