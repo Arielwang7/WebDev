@@ -74,29 +74,34 @@
                 if (randomString == "scissors"){
                     if (userGuess == "rock"){
                         lastResult.textContent = "You won!";
+                        setGameOver();
                     }
                     if (userGuess == "paper"){
                         lastResult.textContent = "You loss!";
+                        setGameOver();
                     }
                 }
                 if (randomString == "rock"){
                     if (userGuess == "paper"){
                         lastResult.textContent = "You won!";
+                        setGameOver();
                     }
                     if (userGuess == "scissor"){
                         lastResult.textContent = "You loss!";
+                        setGameOver();
                     }
                 }
                 if (randomString == "paper"){
                     if (userGuess == "scissor"){
                         lastResult.textContent = "You won!";
+                        setGameOver();
                     }
                     if (userGuess == "rock"){
                         lastResult.textContent = "You loss!";
+                        setGameOver();
                     }
                 }
             }
-        guessField.focus();
         }
         guessSubmit.addEventListener("click", checkGuess);
 
@@ -113,19 +118,19 @@
         function resetGame() {
             const resetParas = document.querySelectorAll(".resultParas p");
             for (const resetPara of resetParas) {
-                resetPara.textContent = "";
+                
             }
 
             resetButton.parentNode.removeChild(resetButton);
 
             guessField.disabled = false;
             guessSubmit.disabled = false;
-            guessField.value = "";
             guessField.focus();
 
             lastResult.style.backgroundColor = "white";
 
-            randomString = Math.floor(Math.random() * 100) + 1;
+            const choices = ["rock", "paper", "scissors"];
+            let randomString = Math.floor(Math.random() * choices.length);
         }
     </script>
 
