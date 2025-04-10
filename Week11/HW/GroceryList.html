@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grocery List Using Array</title>
+        <style>
+            body {
+                background-color: blanchedalmond;
+                font-family: Arial, sans-serif;
+                padding: 20px;
+            }
+            h1 {
+              color: #2b7a78;
+            }
+            ul {
+              list-style-type:lower-roman;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>My Grocery List</h1>
+        <ul id="groceryList"></ul>
+
+        <script>
+        groceries = ["Bananas","Spinach","Garlic","Eggs","Yogurt","Pasta","Potatoes", "Olive Oil"];
+        groceries[0] = "Blueberries";
+        groceries.sort();
+
+        const listElement = document.getElementById("groceryList");
+
+        groceries.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        listElement.appendChild(li);
+        });
+  </script>
+    </body>
+</html>
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grocery List</title>
+    </head>
+    <body>
+        <h1>Grocery List:</h1>
+
+        <p id="groceries"></p>
+
+        <p id="groceryy"></p>
+
+        <p id="Grocery"></p>
+
+        <p id="groceriesss"></p>
+
+        <script>
+            grocery = ["Bananas", "Blueberries", "Lettuce", "Potatoes", "Eggs", "Oil", "Tomatoes", "Ice Cream"];
+            document.getElementById("groceries").textContent = grocery;
+
+            document.getElementById("groceryy").textContent = grocery.sort();
+
+            document.getElementById("Grocery").textContent = `There are a total of ${grocery.length()} items.`;
+
+            for (i=0; i<grocery.length; i++){
+                document.getElementById("groceriesss").textContent = grocery;
+            }
+        </script>
+    </body>
+</html>
