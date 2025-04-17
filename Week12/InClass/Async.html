@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Ghibli Film</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background: #fefae0;
+        text-align: center;
+        padding: 2rem;
+      }
+      #card {
+        background: white;
+        border-radius: 1rem;
+        padding: 2rem;
+        max-width: 600px;
+        margin: auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      img {
+        max-width: 100%;
+        border-radius: 1rem;
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="card">
+      <h1 id="title">Loading...</h1>
+      <img id="image" src="" alt="Film poster" style="display: none" />
+      <p id="description"></p>
+      <p id="year"></p>
+    </div>
+
+    <button id="nextfilm">Next Film</button>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const button = document.getElementById("nextfilm");
+        button.addEventListener("click", loadRandomFilm);
+      });
+
+      async function loadRandomFilm(){
+        const res = await fetch("https://ghibliapi.vercel.app/films");
+        const films = await res.json();
+        const randomFilm = films[Math.floor(Math.random() * films.length)];
+        document.getElementById("title").textContent = randomFilm.title;
+        document.getElementById("description").textContent = randomFilm.description;
+        document.getElementById("year").textContent= `Year released: ${randomFilm.release_date}`;
+        if (randomFilm.image) {
+          const img = document.getElementById("image");
+          img.src = randomFilm.image;
+          img.style.display = "block";
+        } else {
+          document.getElementById("image").style.display = "none";
+        }
+      }
+      loadRandomFilm();
+    </script>
+  </body>
+</html>
