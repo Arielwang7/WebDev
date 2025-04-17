@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Currency Converter</title>
+</head>
+<body>
+  <h2>Currency Converter</h2>
+
+  <label>Amount:</label>
+  <input type="number" id="amount" placeholder="Enter amount"><br><br>
+
+  <label>From:</label>
+  <select id="fromCurrency">
+    <option value="USD">USD</option>
+    <option value="JPY">JPY</option>
+    <option value="MXN">MXN</option>
+    <option value="CAD">CAD</option>
+    <option value="TWD">TWD</option>
+    <option value="KRW">KRW</option>
+    <option value="RMB">RMB</option>
+    <option value="NPR">NPR</option>
+
+  </select>
+
+  <label>To:</label>
+  <select id="toCurrency">
+    <option value="USD">USD</option>
+    <option value="JPY">JPY</option>
+    <option value="MXN">MXN</option>
+    <option value="CAD">CAD</option>
+    <option value="TWD">TWD</option>
+    <option value="KRW">KRW</option>
+    <option value="RMB">RMB</option>
+    <option value="NPR">NPR</option>
+  </select><br><br>
+
+  <button onclick="convertCurrency()">Convert</button>
+
+  <p id="result"></p>
+
+  <script>
+    async function convertCurrency() {
+      const amount = parseFloat(document.getElementById("amount").value);
+      const from = document.getElementById("fromCurrency").value;
+      const to = document.getElementById("toCurrency").value;
+
+      if (isNaN(amount)) {
+        document.getElementById("result").innerText = "Please enter a valid amount.";
+        return;
+      }
+
+      const apiKey = '76244b60ddc64476897e3c48079e5ce8'; 
+      const url = `https://api.currencyfreaks.com/latest?apikey=${apiKey}&symbols=${from},${to}`;
+
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        const fromRate = parseFloat(data.rates[from]);
+        const toRate = parseFloat(data.rates[to]);
+
+        const convertedAmount = ((amount / fromRate) * toRate).toFixed(2);
+
+        document.getElementById("result").innerText = `${amount} ${from} = ${convertedAmount} ${to}`;
+      }
+      catch (error) {
+        document.getElementById("result").innerText = "Conversion failed. Please try again.";
+        console.error(error);
+      }
+    }
+  </script>
+</body>
+</html>
