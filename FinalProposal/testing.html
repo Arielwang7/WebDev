@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Right-Aligned Navbar with Logo</title>
+  <style>
+    body {
+        margin: 0;
+    }
+    /* Navbar container */
+    .navbar {
+      display: flex;
+      justify-content: space-between; /* Logo left, links right */
+      align-items: center;
+      background-color: #333;
+      padding: 0;
+    }
+
+    /* Logo text */
+    .logo {
+      color: white;
+      font-size: 30px;
+      font-family: 'Georgia', serif;
+      padding: 14px 0;
+    }
+
+    /* Nav links container */
+    .nav-links {
+      display: flex;
+      gap: 10px; /* spacing between links */
+    }
+
+    /* Nav links */
+    .nav-links a {
+      color: white;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 16px;
+      display: block;
+    }
+
+    .nav-links a:hover {
+      background-color: #575757;
+    }
+
+    /* Dropdown container */
+    .dropdown {
+      position: relative;
+    }
+
+    /* Dropdown button */
+    .dropbtn {
+      color: white;
+      padding: 14px 16px;
+      text-decoration: none;
+      background-color: inherit;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      display: block;
+    }
+
+    /* Dropdown content */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: pink;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    /* Show dropdown on hover */
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="logo">~Ariel's Travel Blog~</div>
+
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+
+      <div class="dropdown">
+        <a class="dropbtn" href="#">Services ▾</a>
+        <div class="dropdown-content">
+          <a href="#">Web Design</a>
+          <a href="#">Marketing</a>
+        </div>
+      </div>
+
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</body>
+</html>

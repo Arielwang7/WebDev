@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Testing for all features I wanna add
+        </title>
+        <style>
+            .likeButton{
+                background: none;
+                border: none;
+                cursor: pointer;
+                font-size: 18px;
+                transition: color 0.3s;
+                color: #444;
+            }
+            .likeButton.saved{
+                color: red; /* red heart when saved */
+                font-weight: bold;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class="country-card" data-country="Japan">
+        <h2>Japan</h2>
+        <button class="likeButton">🤍</button>
+        </div>
+          
+        <div class="country-card" data-country="Italy">
+        <h2>Italy</h2>
+        <button class="likeButton">🤍</button>
+        </div>
+          
+        <h3>Your Wishlist</h3>
+        <ul id="wishlist"></ul>
+          
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const buttons = document.querySelectorAll('.likeButton');
+                const wishlistEl = document.getElementById('wishlist');
+
+                const savedCountries = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+                function updateWishlistUI() {
+                    wishlistEl.innerHTML = '';
+                    savedCountries.forEach(country => {
+                        let li = document.createElement('li');
+                        li.textContent = country;
+                        wishlistEl.appendChild(li);
+                    });
+                }
+
+                buttons.forEach(button => {
+                    const country = button.parentElement.getAttribute('data-country');
+
+                     // Initialize button state
+                    if (savedCountries.includes(country)) {
+                         button.textContent = '❤️';
+                        button.classList.add('saved');
+                    }
+
+                    button.addEventListener('click', () => {
+                        const index = savedCountries.indexOf(country);
+
+                        if (index === -1) {
+                            savedCountries.push(country);
+                            button.textContent = '❤️';
+                            button.classList.add('saved');
+                        } else {
+                            savedCountries.splice(index, 1);
+                            button.textContent = '🤍';
+                            button.classList.remove('saved');
+                         }
+
+                        localStorage.setItem('wishlist', JSON.stringify(savedCountries));
+                        updateWishlistUI();
+                    });
+                });
+                updateWishlistUI();
+            });
+        </script>
+    </body>
+</html>
