@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Chicago</title>
+  <link rel="stylesheet" href="../../dest.css"/>
+</head>
+
+<body>
+    <h1>Chicago</h1>
+
+  <div class="gallery-container">
+    <div class="circle-gallery" id="gallery">
+        <div class="circle-center-text">Click on the circle to see complete image</div>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <img id="overlay-img" src="" alt="Expanded view" />
+  </div>
+
+  <script>
+    const images = [
+      "../chi/chi_img/bean.JPG",
+      "../chi/chi_img/IMG_0128.jpeg",
+      "../chi/chi_img/IMG_0173.JPG",
+      "../chi/chi_img/IMG_0208.jpeg",
+      "../chi/chi_img/IMG_0242.JPG",
+      "../chi/chi_img/IMG_1645.JPG",
+      "../chi/chi_img/IMG_1668.JPG",
+      "../chi/chi_img/IMG_3287.JPG",
+      "../chi/chi_img/IMG_3358.JPG",
+      "../chi/chi_img/IMG_4689.jpeg",
+      "../chi/chi_img/IMG_5097.jpeg",
+      "../chi/chi_img/IMG_6036.JPG",
+      "../chi/chi_img/IMG_6188.jpeg",
+      "../chi/chi_img/IMG_6698.JPG",
+    ];
+
+    const gallery = document.getElementById("gallery");
+    const overlay = document.getElementById("overlay");
+    const overlayImg = document.getElementById("overlay-img");
+
+    const radius = 300;
+    const centerX = 200;
+    const centerY = 200;
+
+    images.forEach((src, i) => {
+      const angle = (i / images.length) * Math.PI * 2;
+      const img = document.createElement("img");
+      img.src = src;
+      img.style.left = `${centerX + radius * Math.cos(angle) - 40}px`;
+      img.style.top = `${centerY + radius * Math.sin(angle) - 40}px`;
+
+      img.addEventListener("click", () => {
+        overlayImg.src = src;
+        overlay.classList.add("show");
+      });
+
+      gallery.appendChild(img);
+    });
+
+    overlay.addEventListener("click", () => {
+      overlay.classList.remove("show");
+    });
+  </script>
+</body>
+</html>

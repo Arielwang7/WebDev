@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Taiwan</title>
+  <link rel="stylesheet" href="../../dest.css"/>
+</head>
+
+<body>
+    <h1>Taiwan</h1>
+
+  <div class="gallery-container">
+    <div class="circle-gallery" id="gallery">
+        <div class="circle-center-text">Click on the circle to see complete image</div>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <img id="overlay-img" src="" alt="Expanded view"/>
+  </div>
+
+  <script>
+    const images = [
+      "../TW/tw_img/dog.JPG",
+      "../TW/tw_img/IMG_0305.jpeg",
+      "../TW/tw_img/IMG_0546.jpeg",
+      "../TW/tw_img/IMG_0697.JPG",
+      "../TW/tw_img/IMG_2658.JPG",
+      "../TW/tw_img/IMG_2980.JPG",
+      "../TW/tw_img/IMG_2981.JPG",
+      "../TW/tw_img/IMG_3706.JPG",
+      "../TW/tw_img/IMG_3716.JPG",
+      "../TW/tw_img/IMG_3846.JPG",
+      "../TW/tw_img/IMG_5447.JPG",
+      "../TW/tw_img/IMG_5836.JPG",
+      "../TW/tw_img/IMG_6265.JPG",
+    ];
+
+    const gallery = document.getElementById("gallery");
+    const overlay = document.getElementById("overlay");
+    const overlayImg = document.getElementById("overlay-img");
+
+    const radius = 300;
+    const centerX = 200;
+    const centerY = 200;
+
+    images.forEach((src, i) => { /*loops thru each image in images*/
+      const angle = (i / images.length) * Math.PI * 2; /*calculate the angle to locate each pic at circle*/
+      const img = document.createElement("img");
+      img.src = src;
+      img.style.left = `${centerX + radius * Math.cos(angle) - 40}px`; /*position each image, 40 centers the 80px image (80/2=40)*/
+      img.style.top = `${centerY + radius * Math.sin(angle) - 40}px`;
+
+      img.addEventListener("click", () => { /*when u click on the cirlce, it creates an overlay that enlarges the picture*/
+        overlayImg.src = src;
+        overlay.classList.add("show");
+      });
+
+      gallery.appendChild(img); /*add pics to the gallery container*/
+    });
+
+    overlay.addEventListener("click", () => { /*when u click anywhere on overlay it exits and goes back to circle*/
+      overlay.classList.remove("show");
+    });
+  </script>
+</body>
+</html>

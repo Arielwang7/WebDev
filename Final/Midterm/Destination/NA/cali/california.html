@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>California</title>
+  <link rel="stylesheet" href="../../dest.css"/>
+</head>
+
+<body>
+    <h1>California</h1>
+
+  <div class="gallery-container">
+    <div class="circle-gallery" id="gallery">
+        <div class="circle-center-text">Click on the circle to see complete image</div>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <img id="overlay-img" src="" alt="Expanded view" />
+  </div>
+
+  <script>
+    const images = [
+      "../cali/cali_img/IMG_0151.JPG",
+      "../cali/cali_img/IMG_0154.JPG",
+      "../cali/cali_img/IMG_0163.JPG",
+      "../cali/cali_img/IMG_0172.JPG",
+      "../cali/cali_img/IMG_4195.JPG",
+      "../cali/cali_img/IMG_4237.JPG",
+      "../cali/cali_img/IMG_4243.JPG",
+      "../cali/cali_img/IMG_7168.JPG",
+      "../cali/cali_img/IMG_7302.jpeg",
+      "../cali/cali_img/IMG_7352.jpeg",
+      "../cali/cali_img/IMG_7365.jpeg",
+    ];
+
+    const gallery = document.getElementById("gallery");
+    const overlay = document.getElementById("overlay");
+    const overlayImg = document.getElementById("overlay-img");
+
+    const radius = 300;
+    const centerX = 200;
+    const centerY = 200;
+
+    images.forEach((src, i) => {
+      const angle = (i / images.length) * Math.PI * 2;
+      const img = document.createElement("img");
+      img.src = src;
+      img.style.left = `${centerX + radius * Math.cos(angle) - 40}px`;
+      img.style.top = `${centerY + radius * Math.sin(angle) - 40}px`;
+
+      img.addEventListener("click", () => {
+        overlayImg.src = src;
+        overlay.classList.add("show");
+      });
+
+      gallery.appendChild(img);
+    });
+
+    overlay.addEventListener("click", () => {
+      overlay.classList.remove("show");
+    });
+  </script>
+</body>
+</html>

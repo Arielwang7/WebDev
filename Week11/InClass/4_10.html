@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Input as Variables</title>
+    <style>
+      h1 {
+        text-transform: uppercase;
+      }
+
+      .red {
+        color: red;
+      }
+
+      .blue {
+        color: rgba(0, 0, 255, 0.75);
+      }
+
+      .green {
+        color: #00ff00;
+      }
+
+      .purple {
+        color: rgb(200, 0, 255);
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="changeMe">Change me based on the user input!</h1>
+    <form>
+      <fieldset>
+        <legend>Pick a number between 0 and 3</legend>
+        <input type="number" name="num" id="num" min="0" max="3" step="1" />
+        <button type="button" id="changeBtn" class=".btnClass">
+          Click to change H1 color based on number
+        </button>
+      </fieldset>
+    </form>
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const myButton = document.getElementById("changeBtn");
+        myButton.addEventListener("click", changeClass);
+      });
+
+      function changeClass() {
+        let userN = document.getElementById("num");
+        console.log(typeof userN.value);
+        let n = parseInt(userN.value);
+        console.log(n);
+
+        var h = document.getElementById("changeMe");
+
+        switch (n) {
+          case 0:
+            h.className = "red";
+            break;
+          case 1:
+            h.className = "blue";
+            break;
+          case 2:
+            h.className = "green";
+            break;
+          case 3:
+            h.className = "purple";
+            break;
+          default:
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>

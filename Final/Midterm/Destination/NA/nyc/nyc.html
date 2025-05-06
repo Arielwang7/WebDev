@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>NYC</title>
+  <link rel="stylesheet" href="../../dest.css"/>
+</head>
+
+<body>
+    <h1>NYC</h1>
+
+  <div class="gallery-container">
+    <div class="circle-gallery" id="gallery">
+        <div class="circle-center-text">Click on the circle to see complete image</div>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <img id="overlay-img" src="" alt="Expanded view" />
+  </div>
+
+  <script>
+    const images = [
+      "../nyc/nyc_img/friends.JPG",
+      "../nyc/nyc_img/IMG_0115.JPG",
+      "../nyc/nyc_img/IMG_0163.JPG",
+      "../nyc/nyc_img/IMG_0999.JPG",
+      "../nyc/nyc_img/IMG_1101.JPG",
+      "../nyc/nyc_img/IMG_1273.JPG",
+      "../nyc/nyc_img/IMG_2124.jpeg",
+      "../nyc/nyc_img/IMG_2798.JPG",
+      "../nyc/nyc_img/IMG_3265.JPG",
+      "../nyc/nyc_img/IMG_3514.JPG",
+      "../nyc/nyc_img/IMG_3645.JPG",
+      "../nyc/nyc_img/IMG_4146.jpeg",
+      "../nyc/nyc_img/IMG_4427.JPG",
+      "../nyc/nyc_img/IMG_4760.jpeg",
+      "../nyc/nyc_img/IMG_4874.JPG",
+      "../nyc/nyc_img/IMG_4926.JPG",
+      "../nyc/nyc_img/IMG_7259.JPG",
+      "../nyc/nyc_img/IMG_7520.JPG",
+      "../nyc/nyc_img/IMG_8877.JPG",
+    ];
+
+    const gallery = document.getElementById("gallery");
+    const overlay = document.getElementById("overlay");
+    const overlayImg = document.getElementById("overlay-img");
+
+    const radius = 300;
+    const centerX = 200;
+    const centerY = 200;
+
+    images.forEach((src, i) => {
+      const angle = (i / images.length) * Math.PI * 2;
+      const img = document.createElement("img");
+      img.src = src;
+      img.style.left = `${centerX + radius * Math.cos(angle) - 40}px`;
+      img.style.top = `${centerY + radius * Math.sin(angle) - 40}px`;
+
+      img.addEventListener("click", () => {
+        overlayImg.src = src;
+        overlay.classList.add("show");
+      });
+
+      gallery.appendChild(img);
+    });
+
+    overlay.addEventListener("click", () => {
+      overlay.classList.remove("show");
+    });
+  </script>
+</body>
+</html>

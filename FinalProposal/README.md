@@ -15,12 +15,11 @@ A continuation of my midterm project
 
 ### HTML/CSS/JS Skills I plan to use
 * Breadcrumbs for Navigation
-* Cards (make each polaroid clickable, instead of having to click on the words)
+* Cards (make each polaroid clickable, instead of having to click on the words) (DONE)
 * Lazy loading (since I have A LOT of pics)
-* Save feature (heart button for people to save
- for there travel wishlist)
+* Save feature (heart button for people to save for there travel wishlist)
  * Photo Tagging & Hover Effects (When hovering a photo, show a quick fact, travel story, or location pin, or all)
- * Add a world map ???
+ * Add a world map ??? (DONE)
  * When I click on the logo it takes users back to homepage
  * add my personal social media 
 

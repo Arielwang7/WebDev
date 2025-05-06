@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Circular Interactive Gallery</title>
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      font-family: sans-serif;
+      overflow-x: hidden;
+    }
+
+    .gallery-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .circle-gallery {
+      position: relative;
+      width: 400px;
+      height: 400px;
+    }
+
+    .circle-gallery img {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid white;
+      cursor: pointer;
+      transition: transform 0.6s ease;
+    }
+
+    .circle-gallery img.active {
+      z-index: 10;
+      transform: scale(2) translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .overlay.show {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .overlay img {
+      max-width: 80vw;
+      max-height: 80vh;
+      border: 5px solid white;
+    }
+  </style>
+</head>
+<body>
+  <div class="gallery-container">
+    <div class="circle-gallery" id="gallery"></div>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <img id="overlay-img" src="" alt="Expanded view" />
+  </div>
+
+  <script>
+    const images = [
+      "https://placekitten.com/200/200",
+      "https://placekitten.com/201/200",
+      "https://placekitten.com/202/200",
+      "https://placekitten.com/203/200",
+      "https://placekitten.com/204/200",
+      "https://placekitten.com/205/200",
+      "https://placekitten.com/206/200",
+      "https://placekitten.com/207/200"
+    ];
+
+    const gallery = document.getElementById("gallery");
+    const overlay = document.getElementById("overlay");
+    const overlayImg = document.getElementById("overlay-img");
+
+    const radius = 300;
+    const centerX = 200;
+    const centerY = 200;
+
+    images.forEach((src, i) => {
+      const angle = (i / images.length) * Math.PI * 2;
+      const img = document.createElement("img");
+      img.src = src;
+      img.style.left = `${centerX + radius * Math.cos(angle) - 40}px`;
+      img.style.top = `${centerY + radius * Math.sin(angle) - 40}px`;
+
+      img.addEventListener("click", () => {
+        overlayImg.src = src;
+        overlay.classList.add("show");
+      });
+
+      gallery.appendChild(img);
+    });
+
+    overlay.addEventListener("click", () => {
+      overlay.classList.remove("show");
+    });
+  </script>
+</body>
+</html>

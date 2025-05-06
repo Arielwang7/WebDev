@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Travel Blog</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> <!--social media icon-->
+        <link rel="stylesheet" type="text/css" href="../Midterm/midterm.css">
+    </head>
+    <body>
+        <div class="homepage">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="../Midterm/Midterm.html" style="text-decoration: none;"> Travel Gallery</a>
+                </div>
+                <div class="nav-links"> 
+                  <a href="Midterm.html">Home</a> 
+            
+                  <div class="dropdown">
+                    <a class="dropbtn" href="#">Destinations <span class="arrow">▾</span> </a>
+                    <div class="dropdown-content">
+                      <a href="../Midterm/Destination/NA/NA.html">North America</a>
+                      <a href="../Midterm/Destination/SA/SA.html">South America</a>
+                      <a href="../Midterm/Destination/Asia/Asia.html">Asia</a>
+                      <a href="../Midterm/Destination/Europe/europe.html">Europe</a>
+                      <a href="../Midterm/Destination/Africa/africa.html">Africa</a>
+                      <a href="../Midterm/Destination/Antartica/antartica.html">Antartica</a>
+                      <a href="../Midterm/Destination/Australia/australia.html">Australia</a>
+                    </div>
+                  </div>
+            
+                  <a href="../Midterm/Contacts/contacts.html">Contact</a>
+                </div>
+            </div>
+
+            <video autoplay muted loop id="background-video">
+                <source src="video.mp4" type="video/mp4">
+            </video>
+
+            <h1 style="color: white; position: absolute; top: 80%; left: 60%;">A Curated Travel Gallery</h1>
+        </div>
+
+        <div class="about">
+            <div class="image">
+                <img src="../Midterm/image/me.jpeg" alt="me in the wild"/>
+            </div>
+            <div class="text">
+                <h2>Hey, this is Ariel!</h2>
+                <p>This is simply a place where I organize all my travel photos</p>
+                <p>Hope you enjoy!</p>
+            </div>
+        </div>
+
+
+        <div id="map" style="height:500px; width:80%; margin:auto;"></div>
+        <p>click on the red pins to go to my gallery!</p>
+        <script async
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAP_ta3GJrFDx3CT9R8mCWyGNUwpImrl1I&callback=initMap">
+        </script>
+
+        <script>
+            function initMap() {
+                // Create the map centered globally
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 2,
+                    center: { lat: 20, lng: 0 }, // Center of the world roughly
+                    mapTypeId: "roadmap"
+                });
+
+                // Add some default markers (NYC, Tokyo, London)
+                const nycMarker = new google.maps.Marker({
+                    position: { lat: 40.7128, lng: -74.0060 },
+                    map: map,
+                    title: "📍 NYC"
+                });
+                nycMarker.addListener('click', function() {
+                    window.location.href = "../Midterm/Destination/NA/nyc/nyc.html"; // link to nyc
+                });
+                
+                const bosMarker = new google.maps.Marker({
+                    position: { lat: 42.3555, lng: -71.0565 },
+                    map: map,
+                    title: "📍 Boston"
+                });
+                bosMarker.addListener('click', function() {
+                    window.location.href = "../Midterm/Destination/NA/boston/boston.html"; // link to boston
+                });
+
+                const caliMarker = new google.maps.Marker({
+                    position: { lat: 36.7783, lng: -119.4179 },
+                    map: map,
+                    title: "📍 California"
+                });
+                caliMarker.addListener('click', function() {
+                    window.location.href="../Midterm/Destination/NA/cali/california.html"; // link to california
+                });
+
+                const chiMarker = new google.maps.Marker({
+                    position: { lat: 41.8781, lng: -87.6298 },
+                    map: map,
+                    title: "📍 Chicago"
+                });
+                chiMarker.addListener('click', function() {
+                    window.location.href="../Midterm/Destination/NA/chi/chicago.html"; // link to chicago
+                });
+
+                const vegasMarker = new google.maps.Marker({
+                    position: { lat: 36.1716, lng: -115.1391 },
+                    map: map,
+                    title: "📍 Las Vegas"
+                });
+                vegasMarker.addListener('click', function() {
+                    window.location.href="../Midterm/Destination/NA/vegas/vegas.html"; // link to vegas
+                });
+
+                const wiscoMarker = new google.maps.Marker({
+                    position: { lat: 43.7844, lng: -88.7879 },
+                    map: map,
+                    title: "📍 Wisconsin"
+                });
+                wiscoMarker.addListener('click', function() {
+                    window.location.href="../Midterm/Destination/NA/wisconsin/wisco.html"; // link to wisco
+                });
+
+                const mexicoMarker = new google.maps.Marker({
+                    position: { lat: 23.6345, lng: -102.5528 },
+                    map: map,
+                    title: "📍 Mexico"
+                });
+                mexicoMarker.addListener('click', function() {
+                    window.location.href="../Midterm/Destination/SA/Mexico/mexico.html"; // link to mexico
+                });
+
+                const koreaMarker = new google.maps.Marker({
+                    position: { lat: 35.9078, lng: 127.7669 },
+                    map: map,
+                    title: "📍 Korea"
+                });
+                koreaMarker.addListener('click', function() {
+                    window.location.href="../Midterm/Destination/Asia/KR/kr.html"; // link to korea
+                });
+
+                const jpMarker = new google.maps.Marker({
+                    position: { lat: 35.6895, lng: 139.6917 },
+                    map: map,
+                    title: "📍 Japan"
+                });
+                jpMarker.addListener('click', function() {
+                    window.location.href="../Midterm/Destination/Asia/JP/jp.html"; // link to Japan 
+                });
+
+                const npMarker = new google.maps.Marker({
+                    position: { lat: 28.3949, lng: 84.1240 },
+                    map: map,
+                    title: "📍 Nepal"
+                });
+                npMarker.addListener('click', function() {
+                    window.location.href="../Midterm/Destination/Asia/NP/np.html"; // link to Nepal
+                });
+
+                const sgMarker = new google.maps.Marker({
+                    position: { lat: 1.3521, lng: 103.8198 },
+                    map: map,
+                    title: "📍 Singapore"
+                });
+                sgMarker.addListener('click', function() {
+                    window.location.href="../Midterm/Destination/Asia/SG/sg.html"; // link to singapore
+                });
+
+                const shMarker = new google.maps.Marker({
+                    position: { lat: 31.2304, lng: 121.4737 },
+                    map: map,
+                    title: "📍 Shanghai"
+                });
+                shMarker.addListener('click', function() {
+                    window.location.href="../Midterm/Destination/Asia/SH/sh.html"; // link to shanghai
+                });
+
+                const twMarker = new google.maps.Marker({
+                    position: { lat: 23.6978, lng: 120.9605 },
+                    map: map,
+                    title: "📍 Taiwan"
+                });
+                twMarker.addListener('click', function() {
+                    window.location.href="../Midterm/Destination/Asia/TW/tw.html"; // link to taiwan
+                });
+            }
+        </script>
+    </body>
+
+    <footer class="footer">
+        <div class="social-icons">
+          <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/ariel-wang1/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:Arielwang@nyu.edu"><i class="fas fa-envelope"></i></a>
+        </div>
+      </footer>
+</html>
+

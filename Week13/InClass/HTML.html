@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <button>Change color</button>
+        <h1 id="addtext"></h1>
+        <script>
+            const btn = document.querySelector("button");
+
+            function random(number) {
+                return Math.floor(Math.random() * (number + 1));
+            }
+            btn.addEventListener("click", () => {
+                const rndCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
+                document.body.style.backgroundColor = rndCol;
+            });
+            btn.addEventListener("click", () => {
+                document.getElementId("addtext").innerHTML = "HI"
+            });
+            function writeText(){
+                document.getElementId("addtext").innerHTML = "HI"
+            }
+            btn.addEventListener("click", random);
+            btn.addEventListener("click", writeText);
+        </script>
+    </body>
+</html>

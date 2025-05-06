@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Nepal</title>
+  <link rel="stylesheet" href="../../dest.css"/>
+</head>
+
+<body>
+    <h1>Nepal</h1>
+
+  <div class="gallery-container">
+    <div class="circle-gallery" id="gallery">
+        <div class="circle-center-text">Click on the circle to see complete image</div>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <img id="overlay-img" src="" alt="Expanded view" />
+  </div>
+
+  <script>
+    const images = [
+      "../NP/np_img/IMG_2826.jpeg",
+      "../NP/np_img/IMG_2839.jpeg",
+      "../NP/np_img/IMG_2841.jpeg",
+      "../NP/np_img/IMG_2897.jpeg",
+      "../NP/np_img/IMG_2907.jpeg",
+      "../NP/np_img/IMG_2943.jpeg",
+      "../NP/np_img/IMG_2998.jpeg",
+      "../NP/np_img/IMG_3009.jpeg",
+      "../NP/np_img/IMG_3088.jpeg",
+      "../NP/np_img/Image.JPG",
+    ];
+
+    const gallery = document.getElementById("gallery");
+    const overlay = document.getElementById("overlay");
+    const overlayImg = document.getElementById("overlay-img");
+
+    const radius = 300;
+    const centerX = 200;
+    const centerY = 200;
+
+    images.forEach((src, i) => {
+      const angle = (i / images.length) * Math.PI * 2;
+      const img = document.createElement("img");
+      img.src = src;
+      img.style.left = `${centerX + radius * Math.cos(angle) - 40}px`;
+      img.style.top = `${centerY + radius * Math.sin(angle) - 40}px`;
+
+      img.addEventListener("click", () => {
+        overlayImg.src = src;
+        overlay.classList.add("show");
+      });
+
+      gallery.appendChild(img);
+    });
+
+    overlay.addEventListener("click", () => {
+      overlay.classList.remove("show");
+    });
+  </script>
+</body>
+</html>

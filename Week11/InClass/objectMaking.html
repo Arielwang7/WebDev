@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>Object basics: Task 2</title>
+    <style>
+      p {
+        color: purple;
+        font-size: 2em;
+        margin: 0.5em 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="preview"></section>
+  </body>
+  <script>
+    const band = {
+        name: "Coldplay",
+        nationality: "British",
+        genre: "Rock", 
+        members: ["Chris", "Guy", "Phil", "Jonny", "Will"], 
+        formed: 1997, 
+        split: false,
+        albums: [
+          {name: "Parachute", 
+          released: 2000,
+          },
+          {name:"Moon Music", 
+          released: 2024,
+          }, 
+        ],
+      }
+    // Don't edit the code below here!
+    let yearsActive = band.split
+      ? "from " + band.formed + " to " + new Date().getFullYear()
+      : "since " + band.formed;
+
+    let bandInfo =
+      band.name +
+      " is a " +
+      band.nationality +
+      " " +
+      band.genre +
+      " band. They were active " +
+      yearsActive +
+      ". Their first album, " +
+      band.albums[0].name +
+      ", was released in " +
+      band.albums[0].released +
+      ".";
+
+    const section = document.querySelector("section");
+    let para1 = document.createElement("p");
+    para1.textContent = bandInfo;
+    section.appendChild(para1);
+  </script>
+</html>

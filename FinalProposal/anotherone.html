@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scroll Glow Words + Google Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 50px;
+      background-color: black;
+      font-family: sans-serif;
+      color: white;
+      height: 400vh;
+    }
+    #map {
+      height: 500px;
+      width: 100%;
+    }
+    .scroll-fade-text {
+      font-size: 32px;
+      line-height: 2em;
+      max-width: 800px;
+      margin: 100vh auto 0;
+      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    .scroll-fade-text span {
+      color: #444;
+      transition: color 0.6s ease, text-shadow 0.6s ease;
+    }
+    .scroll-fade-text span.visible {
+      color: white;
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff;
+    }
+  </style>
+</head>
+<body>
+
+<div class="scroll-fade-text" id="text-container"></div>
+<div id="map"></div>
+
+<script>
+  const sentence = "Scroll down and watch each word glow like stardust.";
+  const container = document.getElementById("text-container");
+
+  sentence.split(" ").forEach(word => {
+    const span = document.createElement("span");
+    span.textContent = word;
+    container.appendChild(span);
+  });
+
+  const words = container.querySelectorAll("span");
+
+  function glowWordsOnScroll() {
+    const scrollProgress = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    const wordsToShow = Math.floor(scrollProgress * words.length * 4.0);
+
+    words.forEach((word, index) => {
+      if (index <= wordsToShow) {
+        word.classList.add("visible");
+      } else {
+        word.classList.remove("visible");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", glowWordsOnScroll);
+  window.addEventListener("load", glowWordsOnScroll);
+</script>
+
+<!-- Google Maps Script -->
+<script async
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAP_ta3GJrFDx3CT9R8mCWyGNUwpImrl1I&callback=initMap">
+</script>
+
+<script>
+  function initMap() {
+    // Create the map centered globally
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 2,
+      center: { lat: 20, lng: 0 }, // Center of the world roughly
+      mapTypeId: "roadmap"
+    });
+
+    // Add some default markers (NYC, Tokyo, London)
+    new google.maps.Marker({
+      position: { lat: 40.7128, lng: -74.0060 },
+      map: map,
+      title: "📍 New York City"
+    });
+
+    new google.maps.Marker({
+      position: { lat: 35.6895, lng: 139.6917 },
+      map: map,
+      title: "📍 Tokyo"
+    });
+
+    new google.maps.Marker({
+      position: { lat: 51.5074, lng: -0.1278 },
+      map: map,
+      title: "📍 London"
+    });
+
+    // Try to center on user's location
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+          map.setCenter(pos);
+
+          new google.maps.Marker({
+            position: pos,
+            map: map,
+            title: "📍 You are here",
+            icon: {
+              url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
+            }
+          });
+        },
+        () => {
+          alert("Could not get your location.");
+        }
+      );
+    }
+  }
+</script>
+
+</body>
+</html>
